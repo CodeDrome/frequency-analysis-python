@@ -1,8 +1,10 @@
+from typing import Dict
+
 from operator import itemgetter
 import json
 
 
-def create_decryption_dictionary(plaintext_filepath, encrypted_filepath, dictionary_filepath):
+def create_decryption_dictionary(plaintext_filepath: str, encrypted_filepath: str, dictionary_filepath: str) -> None:
 
     """
     Create an estimated mapping between encrypted letters and
@@ -26,7 +28,7 @@ def create_decryption_dictionary(plaintext_filepath, encrypted_filepath, diction
     f.close()
 
 
-def decrypt_file(encrypted_filepath, decrypted_filepath, dictionary_filepath):
+def decrypt_file(encrypted_filepath: str, decrypted_filepath: str, dictionary_filepath: str) -> None:
 
     """
     Use the dictionary to decrypt the encrypted file
@@ -53,7 +55,7 @@ def decrypt_file(encrypted_filepath, decrypted_filepath, dictionary_filepath):
     f.close()
 
 
-def _count_letter_frequencies(text):
+def _count_letter_frequencies(text: str) -> Dict:
 
     """
     Create a dictionary of letters A-Z and count the frequency
@@ -78,7 +80,7 @@ def _count_letter_frequencies(text):
     return sorted_by_frequency
 
 
-def _readfile(path):
+def _readfile(path: str) -> str:
 
     f = open(path, "r")
     text = f.read()
